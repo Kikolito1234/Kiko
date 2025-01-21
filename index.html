@@ -36,6 +36,14 @@
             grid-template-columns: repeat(4, 1fr);
             gap: 15px;
             padding: 20px;
+            text-align: center; /* Center align app names */
+        }
+
+        /* App Container */
+        .app-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         /* App Icon */
@@ -63,6 +71,13 @@
         .app-icon:hover {
             transform: scale(1.1);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* App Label */
+        .app-label {
+            margin-top: 5px;
+            font-size: 12px;
+            color: white; /* Match status bar text color */
         }
 
         /* Dock */
@@ -151,17 +166,40 @@
 
     <!-- Home Screen -->
     <div id="home-screen">
-        <!-- Updated Minecraft Icon -->
-        <div class="app-icon" data-app="Minecraft">
-            <img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/logos/Homepage_Gameplay-Trailer_MC-OV-logo_300x300.png" alt="Minecraft Icon">
+        <div class="app-container">
+            <div class="app-icon" data-app="Minecraft">
+                <img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/logos/Homepage_Gameplay-Trailer_MC-OV-logo_300x300.png" alt="Minecraft Icon">
+            </div>
+            <div class="app-label">Minecraft</div>
         </div>
-        <div class="app-icon" data-app="App 2">🌐</div>
-        <div class="app-icon" data-app="App 3">📞</div>
-        <div class="app-icon" data-app="App 4">📧</div>
-        <div class="app-icon" data-app="App 5">🖼️</div>
-        <div class="app-icon" data-app="App 6">🎵</div>
-        <div class="app-icon" data-app="App 7">🛠️</div>
-        <div class="app-icon" data-app="App 8">📖</div>
+        <div class="app-container">
+            <div class="app-icon" data-app="App 2">🌐</div>
+            <div class="app-label">Browser</div>
+        </div>
+        <div class="app-container">
+            <div class="app-icon" data-app="App 3">📞</div>
+            <div class="app-label">Phone</div>
+        </div>
+        <div class="app-container">
+            <div class="app-icon" data-app="App 4">📧</div>
+            <div class="app-label">Email</div>
+        </div>
+        <div class="app-container">
+            <div class="app-icon" data-app="App 5">🖼️</div>
+            <div class="app-label">Gallery</div>
+        </div>
+        <div class="app-container">
+            <div class="app-icon" data-app="App 6">🎵</div>
+            <div class="app-label">Music</div>
+        </div>
+        <div class="app-container">
+            <div class="app-icon" data-app="App 7">🛠️</div>
+            <div class="app-label">Settings</div>
+        </div>
+        <div class="app-container">
+            <div class="app-icon" data-app="App 8">📖</div>
+            <div class="app-label">Books</div>
+        </div>
     </div>
 
     <!-- Dock -->
@@ -222,6 +260,7 @@
     </script>
 </body>
 </html>
+
 
 
 
