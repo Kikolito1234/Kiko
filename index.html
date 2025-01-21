@@ -116,6 +116,35 @@
         #app-modal button:hover {
             background-color: #ddd;
         }
+
+        /* Circular Exit Button */
+        #exit-button {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            background-color: #ff4d4d;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 200;
+            visibility: hidden; /* Hidden by default */
+            opacity: 0;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        #exit-button.active {
+            visibility: visible;
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -154,6 +183,9 @@
         </div>
     </div>
 
+    <!-- Exit Button -->
+    <div id="exit-button">✖</div>
+
     <script>
         // Update time in status bar
         function updateTime() {
@@ -170,21 +202,34 @@
         const modal = document.getElementById('app-modal');
         const modalContent = document.getElementById('app-modal-content');
         const closeModal = document.getElementById('close-modal');
+        const exitButton = document.getElementById('exit-button');
 
         appIcons.forEach(icon => {
             icon.addEventListener('click', () => {
                 const appName = icon.dataset.app;
                 modalContent.textContent = `${appName} is Open`;
                 modal.classList.add('active');
+                exitButton.classList.add('active'); // Show exit button
             });
         });
 
         // Close modal
         closeModal.addEventListener('click', () => {
-            modal.classList.remove('active');
+            closeApp();
         });
+
+        // Exit button functionality
+        exitButton.addEventListener('click', () => {
+            closeApp();
+        });
+
+        function closeApp() {
+            modal.classList.remove('active');
+            exitButton.classList.remove('active'); // Hide exit button
+        }
     </script>
 </body>
 </html>
+
 
 
