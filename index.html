@@ -173,7 +173,7 @@
             <div class="app-label">Minecraft</div>
         </div>
         <div class="app-container">
-            <div class="app-icon" data-app="App 2">🌐</div>
+            <div class="app-icon" data-app="Browser">🌐</div>
             <div class="app-label">Browser</div>
         </div>
         <div class="app-container">
@@ -183,22 +183,6 @@
         <div class="app-container">
             <div class="app-icon" data-app="App 4">📧</div>
             <div class="app-label">Email</div>
-        </div>
-        <div class="app-container">
-            <div class="app-icon" data-app="App 5">🖼️</div>
-            <div class="app-label">Gallery</div>
-        </div>
-        <div class="app-container">
-            <div class="app-icon" data-app="App 6">🎵</div>
-            <div class="app-label">Music</div>
-        </div>
-        <div class="app-container">
-            <div class="app-icon" data-app="App 7">🛠️</div>
-            <div class="app-label">Settings</div>
-        </div>
-        <div class="app-container">
-            <div class="app-icon" data-app="App 8">📖</div>
-            <div class="app-label">Books</div>
         </div>
     </div>
 
@@ -243,6 +227,10 @@
                     iframe.src = "https://eaglercraft.com/mc/1.8.8/?userscript=flameddogo99-eaglermobile.js";
                     modal.classList.add('active');
                     exitButton.classList.add('active'); // Show exit button
+                } else if (appName === "Browser") {
+                    iframe.src = "https://yahoo.com";
+                    modal.classList.add('active');
+                    exitButton.classList.add('active'); // Show exit button
                 }
             });
         });
@@ -260,6 +248,7 @@
     </script>
 </body>
 </html>
+
 
 
 
