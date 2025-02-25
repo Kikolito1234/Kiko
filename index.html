@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iPad UI</title>
     <style>
-        /* General Reset */
+        /* BEGINNING OF STYLE */
         body {
             margin: 0;
             padding: 0;
@@ -15,38 +15,30 @@
             font-family: Arial, sans-serif;
             overflow: hidden;
         }
-
-        /* Status Bar */
         #status-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: rgba(0, 0, 0, 0.5); /* Black with 50% opacity */
+            background-color: rgba(0, 0, 0, 0.5);
             padding: 5px 15px;
             font-size: 14px;
-            color: white; /* White text */
+            color: white;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
             z-index: 10;
         }
-
-        /* Home Screen */
         #home-screen {
             flex: 1;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 15px;
             padding: 20px;
-            text-align: center; /* Center align app names */
+            text-align: center;
         }
-
-        /* App Container */
         .app-container {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-
-        /* App Icon */
         .app-icon {
             width: 60px;
             height: 60px;
@@ -61,26 +53,20 @@
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
         }
-
         .app-icon img {
             width: 100%;
             height: 100%;
             border-radius: 12px;
         }
-
         .app-icon:hover {
             transform: scale(1.1);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-
-        /* App Label */
         .app-label {
             margin-top: 5px;
             font-size: 12px;
-            color: white; /* Match status bar text color */
+            color: white;
         }
-
-        /* Dock */
         #dock {
             display: flex;
             justify-content: center;
@@ -91,14 +77,11 @@
             position: sticky;
             bottom: 0;
         }
-
         #dock .app-icon {
             width: 50px;
             height: 50px;
             font-size: 20px;
         }
-
-        /* App Modal */
         #app-modal {
             position: fixed;
             top: 0;
@@ -114,19 +97,15 @@
             opacity: 0;
             transition: opacity 0.3s, visibility 0.3s;
         }
-
         #app-modal iframe {
             width: 100%;
             height: 100%;
             border: none;
         }
-
         #app-modal.active {
             visibility: visible;
             opacity: 1;
         }
-
-        /* Circular Exit Button */
         #exit-button {
             position: fixed;
             right: 20px;
@@ -145,26 +124,22 @@
             cursor: pointer;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             z-index: 200;
-            visibility: hidden; /* Hidden by default */
+            visibility: hidden;
             opacity: 0;
             transition: opacity 0.3s, visibility 0.3s;
         }
-
         #exit-button.active {
             visibility: visible;
             opacity: 1;
         }
+        /* END OF STYLE */
     </style>
 </head>
 <body style="background-image: url('background.jpg'); background-size: cover; background-position: center;">
-
-    <!-- Status Bar -->
     <div id="status-bar">
         <span id="time">12:30</span>
         <span id="battery">🔋 80%</span>
     </div>
-
-    <!-- Home Screen -->
     <div id="home-screen">
         <div class="app-container">
             <div class="app-icon" data-app="Minecraft">
@@ -203,25 +178,18 @@
             <div class="app-label">Books</div>
         </div>
     </div>
-
-    <!-- Dock -->
     <div id="dock">
         <div class="app-icon" data-app="Files">📁</div>
         <div class="app-icon" data-app="Videos">🎥</div>
         <div class="app-icon" data-app="Notes">📋</div>
         <div class="app-icon" data-app="Camera">📷</div>
     </div>
-
-    <!-- App Modal -->
     <div id="app-modal">
         <iframe id="app-iframe"></iframe>
     </div>
-
-    <!-- Exit Button -->
     <div id="exit-button">✖</div>
-
     <script>
-        // Update time in status bar
+        /* BEGINNING OF SCRIPT */
         function updateTime() {
             const now = new Date();
             const hours = String(now.getHours()).padStart(2, '0');
@@ -230,13 +198,10 @@
         }
         setInterval(updateTime, 1000);
         updateTime();
-
-        // Handle opening app modal
         const appIcons = document.querySelectorAll('.app-icon');
         const modal = document.getElementById('app-modal');
         const iframe = document.getElementById('app-iframe');
         const exitButton = document.getElementById('exit-button');
-
         appIcons.forEach(icon => {
             icon.addEventListener('click', () => {
                 const appName = icon.dataset.app;
@@ -249,6 +214,15 @@
                     iframe.src = "https://gprochat.orzllc.com/";
                     modal.classList.add('active');
                     exitButton.classList.add('active'); // Show exit button
+                } else if (appName === "Music") {
+                    iframe.src = "https://streamsquid.com/";
+                    modal.classList.add('active');
+                    exitButton.classList.add('active');
+                } else {
+                  //add in other apps here if needed.
+                  //iframe.src = "your_app_url";
+                  //modal.classList.add('active');
+                  //exitButton.classList.add('active');
                 }
             });
         });
@@ -263,6 +237,7 @@
             exitButton.classList.remove('active'); // Hide exit button
             iframe.src = ""; // Clear iframe to stop loading
         }
+        /* END OF SCRIPT */
     </script>
 </body>
 </html>
