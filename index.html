@@ -154,8 +154,8 @@
             <div class="app-label">Gemini</div>
         </div>
         <div class="app-container">
-            <div class="app-icon" data-app="Phone">📞</div>
-            <div class="app-label">Phone</div>
+            <div class="app-icon" data-app="YouTube">▶️</div>
+            <div class="app-label">YouTube</div>
         </div>
         <div class="app-container">
             <div class="app-icon" data-app="Email">📧</div>
@@ -194,7 +194,7 @@
             const now = new Date();
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
-            document.getElementById('time').textContent = `${hours}:${minutes}`;
+            document.getElementById('time').textContent = `<span class="math-inline">\{hours\}\:</span>{minutes}`;
         }
         setInterval(updateTime, 1000);
         updateTime();
@@ -202,7 +202,8 @@
         const modal = document.getElementById('app-modal');
         const iframe = document.getElementById('app-iframe');
         const exitButton = document.getElementById('exit-button');
-        appIcons.forEach(icon => {
+        appIcons.forEach
+        (icon => {
             icon.addEventListener('click', () => {
                 const appName = icon.dataset.app;
 
@@ -216,6 +217,10 @@
                     exitButton.classList.add('active'); // Show exit button
                 } else if (appName === "Music") {
                     iframe.src = "https://streamsquid.com/";
+                    modal.classList.add('active');
+                    exitButton.classList.add('active');
+                } else if (appName === "YouTube") {
+                    iframe.src = "https://poketube.fun/";
                     modal.classList.add('active');
                     exitButton.classList.add('active');
                 } else {
