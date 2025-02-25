@@ -154,7 +154,9 @@
             <div class="app-label">Gemini</div>
         </div>
         <div class="app-container">
-            <div class="app-icon" data-app="YouTube">▶️</div>
+            <div class="app-icon" data-app="YouTube">
+                <img src="https://cdn3.iconfinder.com/data/icons/social-network-30/512/social-06-512.png" alt="YouTube Icon">
+            </div>
             <div class="app-label">YouTube</div>
         </div>
         <div class="app-container">
@@ -190,7 +192,7 @@
     <div id="exit-button">✖</div>
     <script>
         /* BEGINNING OF SCRIPT */
-   function updateTime() {
+       function updateTime() {
     const now = new Date();
     const hours = String(now.getHours()).padStart(2, '0');
     const minutes = String(now.getMinutes()).padStart(2, '0');
@@ -198,12 +200,11 @@
 }
         setInterval(updateTime, 1000);
         updateTime();
-        const appIcons = document.querySelectorAll('.app-icon');
+        const appIcons = document.querySelectorAll('.app-icon );
         const modal = document.getElementById('app-modal');
         const iframe = document.getElementById('app-iframe');
         const exitButton = document.getElementById('exit-button');
-        appIcons.forEach
-        (icon => {
+        appIcons.forEach(icon => {
             icon.addEventListener('click', () => {
                 const appName = icon.dataset.app;
 
