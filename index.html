@@ -183,7 +183,7 @@
     <div id="dock">
         <div class="app-icon" data-app="Files">📁</div>
         <div class="app-icon" data-app="Videos">🎥</div>
-        <div class="app-icon" data-app="Notes">📋</div>
+        <div class="app-icon" data-app="Notes">📋-</div>
         <div class="app-icon" data-app="Camera">📷</div>
     </div>
     <div id="app-modal">
@@ -192,15 +192,15 @@
     <div id="exit-button">✖</div>
     <script>
         /* BEGINNING OF SCRIPT */
-       function updateTime() {
-    const now = new Date();
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-    document.getElementById('time').textContent = `${hours}:${minutes}`; // Corrected line
-}
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            document.getElementById('time').textContent = `<span class="math-inline">\{hours\}\:</span>{minutes}`;
+        }
         setInterval(updateTime, 1000);
         updateTime();
-        const appIcons = document.querySelectorAll('.app-icon );
+        const appIcons = document.querySelectorAll('.app-icon');
         const modal = document.getElementById('app-modal');
         const iframe = document.getElementById('app-iframe');
         const exitButton = document.getElementById('exit-button');
@@ -224,11 +224,43 @@
                     iframe.src = "https://poketube.fun/";
                     modal.classList.add('active');
                     exitButton.classList.add('active');
+                } else if (appName === "Email") {
+                    iframe.src = "https://mail.google.com/";
+                    modal.classList.add('active');
+                    exitButton.classList.add('active');
+                } else if (appName === "Gallery") {
+                    iframe.src = "https://photos.google.com/";
+                    modal.classList.add('active');
+                    exitButton.classList.add('active');
+                } else if (appName === "Settings") {
+                    iframe.src = "https://www.google.com/"; // Replace with settings page if you have one
+                    modal.classList.add('active');
+                    exitButton.classList.add('active');
+                } else if (appName === "Books") {
+                    iframe.src = "https://books.google.com/";
+                    modal.classList.add('active');
+                    exitButton.classList.add('active');
+                } else if (appName === "Files") {
+                    iframe.src = "https://drive.google.com/";
+                    modal.classList.add('active');
+                    exitButton.classList.add('active');
+                } else if (appName === "Videos") {
+                    iframe.src = "https://www.youtube.com/";
+                    modal.classList.add('active');
+                    exitButton.classList.add('active');
+                } else if (appName === "Notes") {
+                    iframe.src = "https://keep.google.com/";
+                    modal.classList.add('active');
+                    exitButton.classList.add('active');
+                } else if (appName === "Camera") {
+                    iframe.src = "https://www.google.com/search?q=camera"; // Replace with camera app if you have one.
+                    modal.classList.add('active');
+                    exitButton.classList.add('active');
                 } else {
-                  //add in other apps here if needed.
-                  //iframe.src = "your_app_url";
-                  //modal.classList.add('active');
-                  //exitButton.classList.add('active');
+                    //add in other apps here if needed.
+                    //iframe.src = "your_app_url";
+                    //modal.classList.add('active');
+                    //exitButton.classList.add('active');
                 }
             });
         });
