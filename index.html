@@ -192,12 +192,12 @@
     <div id="exit-button">✖</div>
     <script>
         /* BEGINNING OF SCRIPT */
-        function updateTime() {
-            const now = new Date();
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            document.getElementById('time').textContent = `<span class="math-inline">\{hours\}\:</span>{minutes}`;
-        }
+      function updateTime() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    document.getElementById('time').textContent = `${hours}:${minutes}`; // Corrected line
+}
         setInterval(updateTime, 1000);
         updateTime();
         const appIcons = document.querySelectorAll('.app-icon');
